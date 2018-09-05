@@ -1,0 +1,32 @@
+server:
+  port: 60070
+
+security:
+  oauth2:
+    client:
+      clientId: beaver
+      clientSecret: 123456
+      accessTokenUri: http://localhost:60070/oauth/token
+      grant-type: client_credentials,password
+      scope: server
+
+spring:
+  servlet:
+    context-path: /auth
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password:
+    url: jdbc:mysql://127.0.0.1:3306/gdtel_auth?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+
+ignore:
+  urls:
+    - /authentication/**
+    - /**/*.css
+    - /social
+    - /signin
+    - /signup
+    - /info
+    - /health
+    - /metrics/**
+    - /loggers/**

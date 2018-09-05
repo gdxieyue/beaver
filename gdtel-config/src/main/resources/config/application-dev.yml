@@ -1,0 +1,76 @@
+spring:
+  redis:
+    remote: false
+    host: 127.0.0.1
+    port: 6379
+    password:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  servlet:
+    multipart:
+      max-file-size: 10Mb
+      max-request-size: 10Mb
+
+redis:
+  cache:
+    expiration: 3601
+
+ribbon:
+  eager-load:
+    enabled: true
+    clients:
+  Httpclient:
+    enabled: false
+  OkHttp:
+    enabled: true
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+
+feign:
+  hystrix:
+    enabled: true
+  okhttp:
+    enabled: true
+  httpclient:
+    enabled: false
+  client:
+    config:
+      feignName:
+        connectTimeout: 30000
+        readTimeout: 30000
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+
+hystrix:
+  threadpool:
+    default:
+      coreSize: 500
+      maxQueueSize: 1000
+      queueSizeRejectionThreshold: 800
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://gdtel:xy666@localhost:60050/eureka/
+
+security:
+  auth:
+    server: http://localhost:60070
+  oauth2:
+    resource:
+#      token-info-uri: ${security.auth.server}/user/current
+      token-info-uri: ${security.auth.server}/oauth/check_token

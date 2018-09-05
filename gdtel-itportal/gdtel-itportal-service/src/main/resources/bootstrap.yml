@@ -1,0 +1,24 @@
+server:
+  port: 60090
+
+spring:
+  application:
+    name: gdtel-itportal
+  profiles:
+    active: dev
+  cloud:
+    config:
+      fail-fast: true
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
+      discovery:
+        enabled: true
+        service-id: gdtel-config
+
+# 注册中心配置
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://gdtel:xy666@localhost:60050/eureka/

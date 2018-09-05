@@ -1,0 +1,27 @@
+server:
+  port: 60060
+
+spring:
+  application:
+    name: gdtel-config
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://gdtel:xy666@127.0.0.1:60050/eureka/
+
+# 关闭安全管理
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
