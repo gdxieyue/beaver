@@ -23,6 +23,7 @@
         <module>gdtel-common</module>
         <module>gdtel-itportal</module>
         <module>gdtel-auth</module>
+        <module>gdtel-module</module>
     </modules>
 
     <properties>

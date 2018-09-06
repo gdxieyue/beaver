@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    gateway:
+      locator:
+        enabled: true
+      routes:
+      - id: gdtel-auth
+        uri: lb://gdtel-auth
+        predicates:
+        - Path=/auth/**
+        filters:
+        - StripPrefix=1
+      - id: gdtel-itportal
+        uri: lb://gdtel-itportal
+        predicates:
+        - Path=/itportal/**
+        filters:
+        - StripPrefix=1
+        # 降级配置
+        - name: Hystrix
+          args:
+            name: default
+            fallbackUri: 'forward:/fallback'

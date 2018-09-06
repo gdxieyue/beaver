@@ -1,0 +1,45 @@
+server:
+  port: 60100
+
+security:
+  oauth2:
+    client:
+      clientId: beaver
+      clientSecret: 123456
+      accessTokenUri: http://localhost:60070/oauth/token
+      grant-type: client_credentials,password
+      scope: server
+
+spring:
+  application:
+    name: gdtel-shop11
+  servlet:
+    context-path: /
+    multipart:
+      max-file-size: 10Mb
+      max-request-size: 10Mb
+  devtools:
+      restart:
+        #热部署生效
+        enabled: false
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/gdtel_shop11?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password:
+
+#mybatis
+mybatis-plus:
+  mapper-locations: classpath:com/gdtel/beaver/*/mapping/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.gdtel.beaver.shop11.entity;
+  global-config:
+    id-type: 3
+    field-strategy: 2
+    db-column-underline: true
+    refresh-mapper: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+
