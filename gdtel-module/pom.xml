@@ -12,7 +12,7 @@
     <artifactId>gdtel-module</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>shop11</module>
+        <module>gdtel-shop11</module>
     </modules>
 
 

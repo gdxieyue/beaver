@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>shop11</artifactId>
+    <artifactId>gdtel-shop11</artifactId>
 
     <dependencies>
         <dependency>
